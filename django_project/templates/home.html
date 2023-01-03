@@ -1,0 +1,12 @@
+{% block content %}
+  <h3>For creating a request</h3>
+  <form method="post" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="button" value="request">Click</button>
+    <h3>For rider</h3>
+    <button type="submit" name="button" value="ride">Click</button>
+    <h3>Asset Transportation Requests </h3>
+    <button type="submit" name="button" value="asset_request">Click</button>
+  </form>
+{% endblock %}

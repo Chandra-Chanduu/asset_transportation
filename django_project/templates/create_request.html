@@ -1,0 +1,11 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Create Asset Transportation Request</h1>
+  <form method="post" action="{% url 'create_request' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create Request</button>
+  </form>
+{% endblock %}

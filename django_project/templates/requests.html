@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+{% block content %}
+    <h1>Asset Transportation Requests</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Requester</th>
+                <th>Start Location</th>
+                <th>End Location</th>
+                <th>Dates</th>
+                <th>Assets</th>
+                <th>Asset Type</th>
+                <th>Sensitivity</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+                <tr>
+                    <td>{{ request.id }}</td>
+                    <td>{{ request.requester }}</td>
+                    <td>{{ request.start_location }}</td>
+                    <td>{{ request.end_location }}</td>
+                    <td>{{ request.dates }}</td>
+                    <td>{{ request.assets }}</td>
+                    <td>{{ request.asset_type}}</td>
+                    <td>{{ request.sensitivity }}</td>
+                    <td>{{ request.status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Rides</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Rider</th>
+                <th>Start Location</th>
+                <th>End Location</th>
+                <th>Dates</th>
+                <th>Assets</th>
+                <th>Asset Type</th>
+                <th>Travel Medium</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ride in rides %}
+                <tr>
+                    <td>{{ ride.id }}</td>
+                    <td>{{ ride.rider }}</td>
+                    <td>{{ ride.start_location }}</td>
+                    <td>{{ ride.end_location }}</td>
+                    <td>{{ ride.dates }}</td>
+                    <td>{{ ride.max_assets }}</td>
+                    <td>{{ ride.travel_medium }}</td>
+                    <td><form action="{% url 'select_ride' %} " method="post">
+                        {% csrf_token %}<input type="hidden" name="request_id" value="{{request_id}}">
+                        <button type="submit" name="get_ride_id" value="{{ ride.id }}">Apply for ride</button>
+                      </form></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

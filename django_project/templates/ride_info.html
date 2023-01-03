@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Rider information shared successfully!!</h1>
+
+<h3>Click Here to redirect Home page</h3>
+    <form method="post" action="{% url 'home' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" value="Home">
+    {% endblock %}

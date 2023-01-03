@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Asset Transportation Status</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Start Location</th>
+                <th>End Location</th>
+                <th>Date</th>
+                <th>Sensitivity</th>
+                <th>Assets</th>
+                <th>Asset Type</th>
+                <th>deliver To</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+                <tr>
+                    <td>{{ request.start_location }}</td>
+                    <td>{{ request.end_location }}</td>
+                    <td>{{ request.date}}</td>
+                    <td>{{ request.sensitivity }}</td>
+                    <td>{{ request.no_of_assets }}</td>
+                    <td>{{ request.asset_type}}</td>
+                    <td>{{ request.deliver_to}}</td>
+
+                    <td>{{ request.status}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>Click Here to redirect Home page</h3>
+    <form method="post" action="{% url 'home' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Home">
+      </form>
+{% endblock %}
+
