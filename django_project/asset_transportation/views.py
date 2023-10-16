@@ -13,7 +13,7 @@ from .models import AssetTransportationRequest
 
 request_id=-1
 cursor=connection.cursor()
-
+#Cursor connection
 
 def home(request):
     if request.method == 'POST':
